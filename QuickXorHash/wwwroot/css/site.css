@@ -1,0 +1,89 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    display: flex;
+    margin-bottom: 60px;
+    background-color: darkgray;
+    color: white;
+    flex-direction: column;
+    font-family: sans-serif;
+}
+
+#title {
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    margin-top: 30px;
+}
+
+#inputSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#inputSection input {
+    color: white;
+    background-color: transparent;
+    border: 0px;
+    border-bottom: 1px solid gray;
+    font-size: 24px;
+    width: 500px;
+}
+
+    #inputSection input:focus {
+        outline: none;
+    }
+
+#resultSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+#hashResult {
+    font-size: 50px;
+}
+
+#hashResult:hover {
+    cursor: pointer;
+}
+
+#selectFileArea {
+    margin: 20px;
+    width: 500px;
+    height: 500px;
+    border: dashed 2px white;
+    display: flex;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+#selectFileArea:hover {
+    cursor: pointer;
+}
+
+#copiedToClipboard {
+}
+
+.hidden {
+    display: none;
+}

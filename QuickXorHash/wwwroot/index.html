@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="/js/site.js"></script>
+    <link rel="stylesheet" href="/css/site.css">
+
+    <title>QuickXorHash</title>
+</head>
+<body>
+    <div id="title">QuickXorHash</div>
+    <div id="inputSection">
+        <div>
+            <input id="textToHash" type="text" placeholder="Enter text to hash" autocomplete="off" />
+        </div>
+        <label id="selectFileArea">
+            <span id="selectFile">Browse for files or paste from clipboard.</span>
+            <input id="fileToHash" type="file" style="display: none">
+        </label>
+    </div>
+    <div id="resultSection">
+        <div id="hashResult">
+        </div>
+        <div id="copiedToClipboard" class="hidden">
+            Hash copied to clipboard.
+        </div>
+    </div>
+</body>
+</html>
