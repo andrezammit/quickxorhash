@@ -1,4 +1,5 @@
 ﻿using System.Buffers;
+using System.IO.Pipelines;
 
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,10 +13,17 @@ namespace QuickXorHash.Controllers
         [RequestSizeLimit(100_000_000)]
         public async Task<IActionResult> GetHash()
         {
-            var dataToHash = await Request.BodyReader.ReadAsync();
-            
+            ReadResult readResult;
+
+            do
+            {
+                readResult = await Request.BodyReader.ReadAsync();
+                Request.BodyReader.AdvanceTo(readResult.Buffer.Start, readResult.Buffer.End);
+            }
+            while (!readResult.IsCompleted);
+
             var quickXorHash = new QuickXorHash();
-            var memoryStream = new MemoryStream(dataToHash.Buffer.ToArray());
+            var memoryStream = new MemoryStream(readResult.Buffer.ToArray());
 
             var hashBytes = await quickXorHash.ComputeHashAsync(memoryStream);
             var hashString = Convert.ToBase64String(hashBytes);

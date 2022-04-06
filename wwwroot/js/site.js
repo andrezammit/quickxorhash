@@ -107,6 +107,8 @@
 
     async function getHash(dataBlob) {
 
+        document.querySelector("#hashResult").innerHTML = "";
+
         const response = await fetch("/api/quickxorhash", {
             method: "POST",
             body: dataBlob
